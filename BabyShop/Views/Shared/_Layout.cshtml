@@ -1,44 +1,50 @@
 ﻿<!DOCTYPE html>
-<html>
+<!--[if lte IE 8]> <html class="oldie" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <title>Bambino</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
+    <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <div id="wrapper">
+        <div class="wrapper-holder">
+            <div class="header-holder">
+                <header id="header">
+                    <span class="logo"><a href="index.html">Bambino</a></span>
+                    <div class="tools-nav_holder">
+                        @{ Html.RenderAction("getLogin", "Head", null);}
+                        @{ Html.RenderAction("getCart", "Head", null);}
+                    </div>
+                    <div class="clear"></div>
+                    <a class="menu_trigger" href="#">menu</a>
+                    <nav id="nav">
+                        @{ Html.RenderAction("getMenu", "Head", null); }
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                        @{ Html.RenderAction("getSearch", "Head", null);}
+                    </nav>
+                </header>
+            </div>
+            <section class="main">
+                <div class="content">
+                     @RenderBody()
+                </div>
+            </section>
+        </div>
+        @{ Html.RenderAction("getFooter", "Footer", null);}
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    @Scripts.Render("~/Scripts/js")
+
+
 </body>
 </html>

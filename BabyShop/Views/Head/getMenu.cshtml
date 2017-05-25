@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "getMenu";
+}
+
+<ul class="navi">
+    <li class="searc_li">
+        <div class="ul_search li">
+            <a class="search" href="#"><span>search</span></a>
+            <form method="get" class="searchform" action="#">
+                <input type="text" class="field" name="s" id="s" placeholder="What are you looking for?" />
+                <input type="submit" class="submit" value="" />
+                <div class="clear"></div>
+            </form>
+        </div>
+    </li>
+    <li>@Html.ActionLink("Trang Chủ","Index","Home")</li>
+
+    <li>@Html.ActionLink("Sản Phẩm Top","SanPhamTop","Home")</li>
+
+    <li>
+        <a href="">Sản Phẩm Theo Hãng</a>
+        @{ Html.RenderAction("ShowMenuHang", "Head"); }
+    </li>
+
+    <li>
+    <a href="">Sản Phẩm Theo Loại</a>
+       @{ Html.RenderAction("ShowMenuLoai", "Head"); }
+    </li>
+
+    <li>@Html.ActionLink("Thông Tin","HienThiThongTin","Home")</li>
+
+    <li>@Html.ActionLink("Liên Hệ","HienThiLienHe","Home")</li>
+</ul>

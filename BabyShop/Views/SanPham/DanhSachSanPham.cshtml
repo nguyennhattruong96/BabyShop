@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BabyShop.Models.SanPham>
+
+<p style="font-size: 36px;color: #0052da;">@ViewBag.TieuDe</p>
+<br />
+<ul class="item-product">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="item">
+                <div class="image">
+                    <a href="@Url.Action("ChiTiet","SanPham",new { id = @item.MaSanPham})"><img src="~/images/sp/@item.HinhURL" alt="" style="width:200px;height:200px" /></a>
+                </div>
+                <span class="name"><a href="@Url.Action("ChiTiet","SanPham",new { id = @item.MaSanPham})">@item.TenSanPham</a></span>
+                <br />
+                <span>@item.GiaSanPham</span>
+            </div>
+        </li>
+    }
+   
+</ul>
+

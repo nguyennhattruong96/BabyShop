@@ -11,22 +11,27 @@ namespace BabyShop.Controllers
     public class HomeController : Controller
     {
         BabyShopEntities db = new BabyShopEntities();
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult SanPhamTop()
+        {
+            ViewBag.Message = "Your application description page.";
+            return View();
+        }
+
+        public ActionResult HienThiThongTin()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult HienThiLienHe()
         {
-            List<AspNetRole> role = db.AspNetRoles.ToList<AspNetRole>();
-            role[0].AspNetUsers.Add()
             ViewBag.Message = "Your contact page.";
 
             return View();
